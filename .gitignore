@@ -1,0 +1,17 @@
+PhotonParty/Temp/
+PhotonParty/UserSettings/
+PhotonParty/.vsconfig
+PhotonParty/Logs/
+PhotonParty/Library/
+PhotonParty/Assembly-CSharp.csproj
+PhotonParty/Assembly-CSharp-Editor.csproj
+PhotonParty/PhotonChat.csproj
+PhotonParty/PhotonRealtime.csproj
+PhotonParty/PhotonUnityNetworking.csproj
+PhotonParty/PhotonUnityNetworking.Demos.csproj
+PhotonParty/PhotonUnityNetworking.Editor.csproj
+PhotonParty/PhotonUnityNetworking.Utilities.csproj
+PhotonParty/PhotonUnityNetworking.Utilities.Culling.Editor.csproj
+PhotonParty/PhotonUnityNetworking.Utilities.PhotonPlayer.Editor.csproj
+PhotonParty/PunDemos.DemoHubEditor.csproj
+PhotonParty/PunDemos.DemoSlotcarEditor.csproj
