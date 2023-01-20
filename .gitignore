@@ -15,3 +15,5 @@ PhotonParty/PhotonUnityNetworking.Utilities.Culling.Editor.csproj
 PhotonParty/PhotonUnityNetworking.Utilities.PhotonPlayer.Editor.csproj
 PhotonParty/PunDemos.DemoHubEditor.csproj
 PhotonParty/PunDemos.DemoSlotcarEditor.csproj
+PhotonParty/obj/
+PhotonParty/.vs/
