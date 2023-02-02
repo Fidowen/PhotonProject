@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.UI;
 public class LobbySceneManager : MonoBehaviourPunCallbacks
 {
+    [SerializeField]
+    InputField inputRoomName;
+
     void Start()
     {
         if(PhotonNetwork.IsConnected == false)
@@ -20,5 +23,26 @@ public class LobbySceneManager : MonoBehaviourPunCallbacks
     public override void OnJoinedLobby()
     {
         print("Lobby joined.");
+    }
+    public string GetRoomName()
+    {
+        string roomName = inputRoomName.text;
+        return roomName.Trim();
+    }
+    public void OnClickCreateRoom()
+    {
+        string roomName = GetRoomName();
+        if (roomName.Length > 0)
+        {
+            PhotonNetwork.CreateRoom(roomName);
+        }
+        else
+        {
+            print("Invaild RoomName");
+        }
+    }
+    public override void OnJoinedRoom()
+    {
+        print("Room Joined!");
     }
 }
