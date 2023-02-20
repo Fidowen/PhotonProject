@@ -4,6 +4,8 @@ using UnityEngine;
 using Photon.Pun;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Photon.Realtime;
+
 public class LobbySceneManager : MonoBehaviourPunCallbacks
 {
     [SerializeField]
@@ -44,5 +46,10 @@ public class LobbySceneManager : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         print("Room Joined!");
+        SceneManager.LoadScene("RoomScene");
+    }
+    public override void OnRoomListUpdate(List<RoomInfo> roomList)
+    {
+        base.OnRoomListUpdate(roomList);
     }
 }
