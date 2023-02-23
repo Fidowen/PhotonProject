@@ -12,6 +12,8 @@ public class LobbySceneManager : MonoBehaviourPunCallbacks
     [SerializeField]
     InputField inputRoomName;
     [SerializeField]
+    InputField inputPlayerName;
+    [SerializeField]
     Text textRoomList;
 
     void Start()
@@ -22,8 +24,16 @@ public class LobbySceneManager : MonoBehaviourPunCallbacks
         }
         else
         {
-            PhotonNetwork.JoinLobby();
+            if (PhotonNetwork.CurrentLobby == null)
+            {
+                PhotonNetwork.JoinLobby();
+            }
         }
+    }
+    public override void OnConnectedToMaster()
+    {
+        print("Connrcted to Master!");
+        PhotonNetwork.JoinLobby();
     }
     public override void OnJoinedLobby()
     {
@@ -34,12 +44,19 @@ public class LobbySceneManager : MonoBehaviourPunCallbacks
         string roomName = inputRoomName.text;
         return roomName.Trim();
     }
+    public string GetPlayerName()
+    {
+        string playerName = inputPlayerName.text;
+        return playerName.Trim();
+    }
     public void OnClickCreateRoom()
     {
+        string playerName = GetPlayerName();
         string roomName = GetRoomName();
-        if (roomName.Length > 0)
+        if (roomName.Length > 0 &&playerName.Length>0)
         {
             PhotonNetwork.CreateRoom(roomName);
+            PhotonNetwork.LocalPlayer.NickName = playerName;
         }
         else
         {
@@ -49,10 +66,12 @@ public class LobbySceneManager : MonoBehaviourPunCallbacks
 
     public void OnClickJoinRoom()
     {
+        string playerName = GetPlayerName();
         string roomName = GetRoomName();
-        if (roomName.Length > 0)
+        if (roomName.Length > 0 && playerName.Length > 0)
         {
             PhotonNetwork.JoinRoom(roomName);
+            PhotonNetwork.LocalPlayer.NickName = playerName;
         }
         else
         {
