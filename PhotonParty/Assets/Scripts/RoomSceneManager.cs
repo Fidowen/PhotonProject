@@ -53,7 +53,7 @@ public class RoomSceneManager : MonoBehaviourPunCallbacks
     }
     public void OnclickStartGame()
     {
-
+        SceneManager.LoadScene("GameScene");
     }
     public void OnClickLeaveRoom()
     {
